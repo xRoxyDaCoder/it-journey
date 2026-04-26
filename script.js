@@ -98,12 +98,12 @@ const level2Questions = [{
     },
     {
         question: "Who painted the Mona Lisa?",
-        answer: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+        answers: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
         correct: "Leonardo da Vinci"
     },
     {
         question: "What is the square root of 144?",
-        answer: ["10", "11", "12", "14"],
+        answers: ["10", "11", "12", "14"],
         correct: "12"
     }
 ];
