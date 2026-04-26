@@ -1,0 +1,250 @@
+body {
+    text-align: center;
+    font-family: Arial;
+    background: linear-gradient(to bottom, #1a1a1a, #000000);
+    color: rgb(0, 255, 238);
+}
+
+h1 {
+    margin-top: 100px;
+    text-shadow: 4px 4px 10px black;
+}
+
+
+/* LEVEL SELECTION BUTTONS */
+
+.level-btn {
+    margin: 30px;
+    padding: 30px 45px;
+    font-weight: bold;
+    font-size: 32px;
+    border-radius: 20px;
+    border: 6px solid yellow;
+    background: linear-gradient(145deg, #444, #222);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 12px #111;
+    transition: all 0.4s ease;
+}
+
+.level-btn:hover {
+    background: linear-gradient(150deg, #666, #333);
+    box-shadow: 0 8px #111;
+}
+
+.level-btn:active {
+    transform: translateY(12px);
+    box-shadow: 0 4px #111;
+}
+
+
+/* LEVEL AND QUESTION NUMBER BUTTONS - 3D STYLE */
+
+.level-indicator,
+.question-indicator {
+    font-weight: bold;
+    color: white;
+    padding: 10px 19px;
+    margin-right: 13px;
+    border-radius: 10px;
+    cursor: default;
+    font-size: 18px;
+    box-shadow: 0 4px #111;
+    /* 3D effect */
+    transition: all 0.2s ease-in-out;
+}
+
+
+/* LEVEL = YELLOW BORDER */
+
+.level-indicator {
+    border: 3px solid yellow;
+    background: linear-gradient(145deg, #000000, #222);
+}
+
+.level-indicator:hover {
+    background: linear-gradient(145deg, #666, #333);
+}
+
+.level-indicator:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #111;
+}
+
+
+/* QUESTION NUMBER = LIGHT GREEN BORDER */
+
+.question-indicator {
+    border: 3px solid rgb(9, 255, 0);
+    background: linear-gradient(145deg, #000000, #222);
+}
+
+.question-indicator:hover {
+    background: linear-gradient(145deg, #666, #333);
+}
+
+.question-indicator:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #111;
+}
+
+
+/* ANSWER BUTTONS - 3D STYLE */
+
+#answers button {
+    display: block;
+    margin: 12px auto;
+    padding: 20px;
+    width: 220px;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 3px solid rgb(225, 0, 255);
+    /* Numbered question highlight */
+    cursor: pointer;
+    background: linear-gradient(145deg, #000000, #222);
+    color: white;
+    box-shadow: 0 6px #111;
+    transition: all 0.1s ease-in-out;
+}
+
+#answers button:hover {
+    background: linear-gradient(145deg, #666, #333);
+}
+
+#answers button:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #111;
+}
+
+
+/* NEXT = BLUE 3D */
+
+#next-btn {
+    background: linear-gradient(145deg, #2196f3, #0b63c5);
+    box-shadow: 0 6px #063a73;
+    margin: 20px;
+    padding: 20px;
+    width: 220px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    border: 3px solid darkblue;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+#next-btn:hover {
+    background: linear-gradient(145deg, #42a5f5, #1565c0);
+}
+
+#next-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #063a73;
+}
+
+
+/* PREVIOUS = RED 3D */
+
+#prev-btn {
+    background: linear-gradient(145deg, #f44336, #b71c1c);
+    box-shadow: 0 6px #5a0f0f;
+    margin: 20px;
+    padding: 20px;
+    width: 220px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    border: 3px solid darkred;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+}
+
+#prev-btn:hover {
+    background: linear-gradient(145deg, #ff6659, #c62828);
+}
+
+#prev-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #5a0f0f;
+}
+
+
+/* Disabled buttons */
+
+button:disabled {
+    background: rgb(0, 0, 0) !important;
+    box-shadow: 0 4px #000000 !important;
+    cursor: not-allowed;
+}
+
+
+/* CHEER ANIMATION */
+
+.cheer {
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    font-weight: bold;
+    color: rgb(38, 255, 0);
+    text-shadow: 2px 2px 5px green;
+    animation: pop 1.5s ease forwards;
+}
+
+
+/* Shake for wrong answer */
+
+@keyframes shake {
+    0% {
+        transform: translateX(0px);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+
+/* Pop effect for cheer */
+
+@keyframes pop {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Correct / Wrong highlights */
+
+.correct {
+    background-color: green !important;
+    color: white;
+}
+
+.wrong {
+    background-color: red !important;
+    color: white;
+}
