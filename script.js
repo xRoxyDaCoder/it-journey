@@ -62,7 +62,9 @@ const level2Questions = [{
         correct: "William Shakespeare"
     },
     {
-        question: ""
+        question: "What is the capital city of Canada?",
+        answers: ["Toronto", "Vancouver", "Ottawa", "Montreal"],
+        correct: "Ottawa"
     }
 ];
 
@@ -196,11 +198,11 @@ function updateButtons() {
 function showCheer() {
     const cheer = document.createElement("div");
     cheer.className = "cheer";
-    cheer.innerText = "!CORRECT! ✅🎉",
-        "!EXCELLENT! ✅🎉",
-        "!AMAZING!✅🎉",
-        "!INCREDIBLE!✅🎉",
-        "!STUNNING!✅🎉";
+    cheer.innerText = "CORRECT! ✅🎉",
+        "EXCELLENT! ✅🎉",
+        "AMAZING!✅🎉",
+        "INCREDIBLE!✅🎉",
+        "STUNNING!✅🎉";
 
     confettiContainer.appendChild(cheer);
 
