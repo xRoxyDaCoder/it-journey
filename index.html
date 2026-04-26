@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Da General Quizz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Da General Quizz Game 🎮</h1>
+
+    <!-- LEVEL SELECTION -->
+    <div id="level-selection">
+        <button class="level-btn" data-level="1">Level 1</button>
+        <button class="level-btn" data-level="2">Level 2</button>
+        <button class="level-btn" data-level="3">Level 3</button>
+    </div>
+
+    <!-- QUIZ CONTAINER -->
+    <div id="quiz-container" style="display: none;">
+        <div id="question-container">
+            <button id="level" class="level-indicator"></button>
+            <button id="question-number" class="question-indicator"></button>
+            <div id="question"></div>
+        </div>
+
+        <div id="answers"></div>
+
+        <button id="prev-btn">Previous</button>
+        <button id="next-btn">Next</button>
+    </div>
+
+    <!-- Confetti / cheer container -->
+    <div id="confetti-container"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
