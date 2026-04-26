@@ -11,7 +11,9 @@ h1 {
 }
 
 
-/* LEVEL SELECTION BUTTONS */
+/* =========================
+   LEVEL SELECTION BUTTONS
+========================= */
 
 .level-btn {
     margin: 30px;
@@ -20,25 +22,54 @@ h1 {
     font-size: 32px;
     border-radius: 20px;
     border: 6px solid yellow;
-    background: linear-gradient(145deg, #444, #222);
     color: white;
     cursor: pointer;
     box-shadow: 0 12px #111;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
 }
 
-.level-btn:hover {
-    background: linear-gradient(150deg, #666, #333);
-    box-shadow: 0 8px #111;
+
+/* FIXED LEVEL COLORS */
+
+.level-1 {
+    background: linear-gradient(145deg, #00ff04, #222) !important;
 }
+
+.level-2 {
+    background: linear-gradient(145deg, #ff9800, #222) !important;
+}
+
+.level-3 {
+    background: linear-gradient(145deg, #f44336, #222) !important;
+}
+
+
+/* FIXED HOVER (NO GREY BUG) */
+
+.level-1:hover {
+    background: linear-gradient(145deg, #00cc00, #111) !important;
+}
+
+.level-2:hover {
+    background: linear-gradient(145deg, #e68900, #111) !important;
+}
+
+.level-3:hover {
+    background: linear-gradient(145deg, #cc0000, #111) !important;
+}
+
+
+/* CLICK EFFECT */
 
 .level-btn:active {
-    transform: translateY(12px);
+    transform: translateY(10px);
     box-shadow: 0 4px #111;
 }
 
 
-/* LEVEL AND QUESTION NUMBER BUTTONS - 3D STYLE */
+/* =========================
+   LEVEL + QUESTION INDICATORS
+========================= */
 
 .level-indicator,
 .question-indicator {
@@ -50,12 +81,11 @@ h1 {
     cursor: default;
     font-size: 18px;
     box-shadow: 0 4px #111;
-    /* 3D effect */
     transition: all 0.2s ease-in-out;
 }
 
 
-/* LEVEL = YELLOW BORDER */
+/* LEVEL INDICATOR */
 
 .level-indicator {
     border: 3px solid yellow;
@@ -72,7 +102,7 @@ h1 {
 }
 
 
-/* QUESTION NUMBER = LIGHT GREEN BORDER */
+/* QUESTION INDICATOR */
 
 .question-indicator {
     border: 3px solid rgb(9, 255, 0);
@@ -89,7 +119,9 @@ h1 {
 }
 
 
-/* ANSWER BUTTONS - 3D STYLE */
+/* =========================
+   ANSWER BUTTONS
+========================= */
 
 #answers button {
     display: block;
@@ -100,7 +132,6 @@ h1 {
     font-size: 16px;
     border-radius: 10px;
     border: 3px solid rgb(225, 0, 255);
-    /* Numbered question highlight */
     cursor: pointer;
     background: linear-gradient(145deg, #000000, #222);
     color: white;
@@ -118,7 +149,9 @@ h1 {
 }
 
 
-/* NEXT = BLUE 3D */
+/* =========================
+   NAV BUTTONS
+========================= */
 
 #next-btn {
     background: linear-gradient(145deg, #2196f3, #0b63c5);
@@ -128,10 +161,9 @@ h1 {
     width: 220px;
     border-radius: 10px;
     font-weight: bold;
-    color: rgb(0, 0, 0);
+    color: black;
     border: 3px solid darkblue;
     cursor: pointer;
-    transition: all 0.1s ease-in-out;
 }
 
 #next-btn:hover {
@@ -143,9 +175,6 @@ h1 {
     box-shadow: 0 2px #063a73;
 }
 
-
-/* PREVIOUS = RED 3D */
-
 #prev-btn {
     background: linear-gradient(145deg, #f44336, #b71c1c);
     box-shadow: 0 6px #5a0f0f;
@@ -154,10 +183,9 @@ h1 {
     width: 220px;
     border-radius: 10px;
     font-weight: bold;
-    color: rgb(0, 0, 0);
+    color: black;
     border: 3px solid darkred;
     cursor: pointer;
-    transition: all 0.1s ease-in-out;
 }
 
 #prev-btn:hover {
@@ -170,16 +198,30 @@ h1 {
 }
 
 
-/* Disabled buttons */
+/* =========================
+   STATES
+========================= */
 
 button:disabled {
-    background: rgb(0, 0, 0) !important;
-    box-shadow: 0 4px #000000 !important;
+    background: black !important;
+    box-shadow: 0 4px #000 !important;
     cursor: not-allowed;
 }
 
+.correct {
+    background-color: green !important;
+    color: white;
+}
 
-/* CHEER ANIMATION */
+.wrong {
+    background-color: red !important;
+    color: white;
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
 
 .cheer {
     position: fixed;
@@ -192,9 +234,6 @@ button:disabled {
     text-shadow: 2px 2px 5px green;
     animation: pop 1.5s ease forwards;
 }
-
-
-/* Shake for wrong answer */
 
 @keyframes shake {
     0% {
@@ -218,9 +257,6 @@ button:disabled {
     animation: shake 0.5s;
 }
 
-
-/* Pop effect for cheer */
-
 @keyframes pop {
     0% {
         transform: translate(-50%, -50%) scale(0);
@@ -234,17 +270,4 @@ button:disabled {
         transform: translate(-50%, -50%) scale(1);
         opacity: 1;
     }
-}
-
-
-/* Correct / Wrong highlights */
-
-.correct {
-    background-color: green !important;
-    color: white;
-}
-
-.wrong {
-    background-color: red !important;
-    color: white;
 }

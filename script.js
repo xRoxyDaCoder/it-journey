@@ -28,7 +28,7 @@ const level1Questions = [{
     },
     {
         question: "Which of the following isnt a brainrot?",
-        answers: ["🤚67🖐️", "Expentanous Expidicious🔍", "🦈Tralalero Tralala👟", "🕊️RIP my granny🌹", "🏏Tung Tung Tung Sahur🏏"],
+        answers: ["🤚67🖐️", "Expentanous Expidicious🔍", "🦈Tralalero Tralala👟"],
         correct: "Expentanous Expidicious🔍"
     },
     {
@@ -39,11 +39,11 @@ const level1Questions = [{
     {
         question: "Which planet is known as the red planet?",
         answers: ["Venus", "Earth", "Mars", "Jupiter"],
-        correct: "Mars" // ✅ FIXED
+        correct: "Mars"
     },
     {
         question: "What is the largest ocean on Earth?",
-        answers: ["Indian Ocean", "Antartic Ocean", "Pacific Ocean"],
+        answers: ["Indian Ocean", "Antarctic Ocean", "Pacific Ocean"],
         correct: "Pacific Ocean"
     },
     {
@@ -78,7 +78,7 @@ const level2Questions = [{
     },
     {
         question: "In which year did World War II end?",
-        answers: ["1945", "1944", "1943", ],
+        answers: ["1945", "1944", "1943"],
         correct: "1945"
     },
     {
@@ -92,14 +92,14 @@ const level2Questions = [{
         correct: "Africa"
     },
     {
-        question: "What is the process by which plants make their food called?",
-        answers: ["Respiration", "Digestion", "Photosynthesis", "Transpiration"],
-        correct: "Photosynthesis"
+        question: "What is photosynthesis?",
+        answers: ["Respiration", "Digestion", "Food making process", "Transpiration"],
+        correct: "Food making process"
     },
     {
         question: "Who painted the Mona Lisa?",
-        answers: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
-        correct: "Leonardo da Vinci"
+        answers: ["Van Gogh", "Picasso", "Da Vinci", "Michelangelo"],
+        correct: "Da Vinci"
     },
     {
         question: "What is the square root of 144?",
@@ -109,20 +109,22 @@ const level2Questions = [{
 ];
 
 // ===========================
-// LEVEL 3 QUESTIONS (NEW)
+// LEVEL 3 QUESTIONS
 // ===========================
 const level3Questions = [{
-
+    question: "What is quantum physics about?",
+    answers: ["Atoms and particles", "Cooking", "Sports", "Music"],
+    correct: "Atoms and particles"
 }];
 
 // ===========================
-// GLOBAL VARIABLES
+// VARIABLES
 // ===========================
 let currentQuestions = [];
 let index = 0;
 
 // ===========================
-// DOM ELEMENTS
+// DOM
 // ===========================
 const levelSelection = document.getElementById("level-selection");
 const quizContainer = document.getElementById("quiz-container");
@@ -132,21 +134,16 @@ const next = document.getElementById("next-btn");
 const prev = document.getElementById("prev-btn");
 const levelLabel = document.getElementById("level");
 const questionNumber = document.getElementById("question-number");
-const confettiContainer = document.getElementById("confetti-container");
 
 // ===========================
-// LEVEL BUTTONS (UPDATED)
+// LEVEL START
 // ===========================
 document.querySelectorAll(".level-btn").forEach(btn => {
     btn.onclick = () => {
-        const levelNum = btn.dataset.level;
-        startLevel(levelNum);
+        startLevel(btn.dataset.level);
     };
 });
 
-// ===========================
-// START LEVEL (UPDATED)
-// ===========================
 function startLevel(levelNum) {
 
     if (levelNum == "1") {
@@ -154,7 +151,7 @@ function startLevel(levelNum) {
     } else if (levelNum == "2") {
         currentQuestions = level2Questions;
     } else if (levelNum == "3") {
-        currentQuestions = level_Questions;
+        currentQuestions = level3Questions;
     }
 
     index = 0;
@@ -169,13 +166,13 @@ function startLevel(levelNum) {
 // SHOW QUESTION
 // ===========================
 function showQuestion(levelNum) {
+
     const q = currentQuestions[index];
 
     levelLabel.innerText = "Level " + levelNum;
     questionNumber.innerText = "Question " + (index + 1);
 
     question.innerText = q.question;
-
     answers.innerHTML = "";
 
     q.answers.forEach(a => {
@@ -185,10 +182,8 @@ function showQuestion(levelNum) {
         btn.onclick = () => {
             if (a === q.correct) {
                 btn.classList.add("correct");
-                showCheer();
             } else {
                 btn.classList.add("wrong");
-                shakeButton(btn);
             }
 
             setTimeout(() => {
@@ -203,19 +198,32 @@ function showQuestion(levelNum) {
 }
 
 // ===========================
-// NEXT BUTTON (UPDATED)
+// NEXT BUTTON (LEVEL FLOW FIXED)
 // ===========================
 next.onclick = () => {
+
     if (index < currentQuestions.length - 1) {
         index++;
         showQuestion(levelLabel.innerText.replace("Level ", ""));
     } else {
-        alert("You finished " + levelLabel.innerText + "!");
+
+        let currentLevel = parseInt(levelLabel.innerText.replace("Level ", ""));
+
+        if (currentLevel === 1) {
+            startLevel("2");
+        } else if (currentLevel === 2) {
+            startLevel("3");
+        } else {
+            alert("🎉 You completed ALL levels!");
+
+            quizContainer.style.display = "none";
+            levelSelection.style.display = "block";
+        }
     }
 };
 
 // ===========================
-// PREVIOUS BUTTON
+// PREVIOUS
 // ===========================
 prev.onclick = () => {
     if (index > 0) {
@@ -225,38 +233,11 @@ prev.onclick = () => {
 };
 
 // ===========================
-// ENABLE / DISABLE NEXT & PREV
+// FIXED BUTTON STATES (KEY FIX)
 // ===========================
 function updateButtons() {
     prev.disabled = index === 0;
-    next.disabled = index === currentQuestions.length - 1;
-}
 
-// ===========================
-// CHEER ANIMATION FOR CORRECT ANSWER
-// ===========================
-function showCheer() {
-    const cheer = document.createElement("div");
-    cheer.className = "cheer";
-    cheer.innerText = "CORRECT! ✅🎉",
-        "EXCELLENT! ✅🎉",
-        "AMAZING!✅🎉",
-        "INCREDIBLE!✅🎉",
-        "STUNNING!✅🎉";
-
-    confettiContainer.appendChild(cheer);
-
-    setTimeout(() => {
-        cheer.remove();
-    }, 1500);
-}
-
-// ===========================
-// SHAKE ANIMATION FOR WRONG ANSWER
-// ===========================
-function shakeButton(btn) {
-    btn.classList.add("shake");
-    setTimeout(() => {
-        btn.classList.remove("shake");
-    }, 10000);
+    // IMPORTANT: DO NOT disable next button
+    next.disabled = false;
 }
