@@ -65,6 +65,46 @@ const level2Questions = [{
         question: "What is the capital city of Canada?",
         answers: ["Toronto", "Vancouver", "Ottawa", "Montreal"],
         correct: "Ottawa"
+    },
+    {
+        question: "Which element has the chemical symbol “Fe”?",
+        answers: ["Lead", "Iron", "Fluorine", "Zinc"],
+        correct: "Iron"
+    },
+    {
+        question: "Who wrote Pride and Prejudice?",
+        answers: ["Emily Brontë", "Charles Dickens", "Jane Austen", "Virginia Woolf"],
+        correct: "Jane Austen"
+    },
+    {
+        question: "In which year did World War II end?",
+        answers: ["1945", "1944", "1943", ],
+        correct: "1945"
+    },
+    {
+        question: "What is the largest planet in our solar system?",
+        answers: ["Saturn", "Earth", "Jupiter", "Neptune"],
+        correct: "Jupiter"
+    },
+    {
+        question: "Which continent is the Sahara Desert located on?",
+        answers: ["Asia", "Africa", "Australia", "South America"],
+        correct: "Africa"
+    },
+    {
+        question: "What is the process by which plants make their food called?",
+        answers: ["Respiration", "Digestion", "Photosynthesis", "Transpiration"],
+        correct: "Photosynthesis"
+    },
+    {
+        question: "Who painted the Mona Lisa?",
+        answer: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+        correct: "Leonardo da Vinci"
+    },
+    {
+        question: "What is the square root of 144?",
+        answer: ["10", "11", "12", "14"],
+        correct: "12"
     }
 ];
 
